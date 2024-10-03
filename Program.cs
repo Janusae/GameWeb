@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using MyTestProject.ClassesEntity;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<MyIndexInformation>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

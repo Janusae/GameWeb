@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyTestProject.ClassesEntity;
 
@@ -10,9 +11,11 @@ using MyTestProject.ClassesEntity;
 namespace MyTestProject.Migrations
 {
     [DbContext(typeof(MyIndexInformation))]
-    partial class MyIndexInformationModelSnapshot : ModelSnapshot
+    [Migration("20241006062302_add3Columns")]
+    partial class add3Columns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

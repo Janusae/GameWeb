@@ -9,6 +9,9 @@
         public string TopImage { get; set; }
         public string CopyriteText { get; set; }
         public string DesignText { get; set; }
-        
+        public bool HasOffer { get; set; }
+        public int Price { get; set; }
+        public int Offer { get; set; }
+
     }
 }

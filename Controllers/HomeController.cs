@@ -21,6 +21,7 @@ namespace MyTestProject.Controllers
 
         public async Task<IActionResult> Index()
         {
+            _logger.LogError("Index action is started!");
             List<IndexPagesInformation> indexPagesList = await _context.IndexInfo.ToListAsync();
             return View(indexPagesList[0]);
         }

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MyTestProject.ClassesEntity;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MyIndexInformation>(options =>
@@ -7,7 +8,10 @@ builder.Services.AddDbContext<MyIndexInformation>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger();
+builder.Host.UseSerilog();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

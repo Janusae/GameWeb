@@ -9,5 +9,6 @@ namespace MyTestProject.ClassesEntity
         {
         }
         public DbSet<IndexPagesInformation> IndexInfo { get; set; }
+        public DbSet<MembersBaseInfo> MBInformation { get; set; }
     }
 }

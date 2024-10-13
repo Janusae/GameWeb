@@ -221,7 +221,10 @@
 	<body class="align">
 
 		<div class="grid">
-
+			@if (TempData["SignInStatus"] != null)
+			{
+				<h1 class="text--center" style="text-align:center">@TempData["SignInStatus"]</h1>
+			}
 			<form asp-action="SignInChecker" asp-controller="Members" method="POST" class="form login">
 
 				<div class="form__field">

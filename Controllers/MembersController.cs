@@ -43,11 +43,16 @@ namespace MyTestProject.Controllers
         }
         private async Task<Status> ConditionalHandler(MembersBaseInfo data)
         {
+            
             var information = _context.MBInformation.ToList();
             var error = 0;
+            if (!data.Email.Contains("@") || !data.Email.Contains(".com"))
+            {
+                error += 1;
+            }
             foreach (var member in information) 
             {
-                if(member.Email == data.Email)
+                if (member.Email == data.Email)
                 {
                     error += 1;
                 }
@@ -58,6 +63,7 @@ namespace MyTestProject.Controllers
             }
             else
             {
+                TempData["SignInStatus"] = "Your information is not correct!";
                 return Status.Faild;
             }
            
